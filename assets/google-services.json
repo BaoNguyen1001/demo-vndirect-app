@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "4466267068",
+    "project_id": "demoapp-92380",
+    "storage_bucket": "demoapp-92380.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4466267068:android:e33fc14b5e6f7d3f0051b9",
+        "android_client_info": {
+          "package_name": "com.baonguyenthk8.vndirectapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4466267068-mciljrgl327og2a91imkg4o1ug33tca2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBw8K_uSjzNWaOO7TyjF3kSQ4cXu9eX1dw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4466267068-mciljrgl327og2a91imkg4o1ug33tca2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "4466267068-1t919s2i9fek3kgu4mlai02978kuqjj4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.baonguyenthk8.vndirectapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
