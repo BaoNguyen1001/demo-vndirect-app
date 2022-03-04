@@ -21,17 +21,7 @@ function Portfolio(props) {
   });
   return (
     <TouchableOpacity onPress={handleOnPress}>
-      <View
-        style={{
-          flexDirection: "column",
-          marginHorizontal: 10,
-          marginVertical: 2,
-          borderRadius: 10,
-          paddingHorizontal: 10,
-          paddingVertical: 10,
-          backgroundColor: "white",
-        }}
-      >
+      <View style={styles.portfolio}>
         <View
           style={{
             flexDirection: "row",
@@ -39,14 +29,7 @@ function Portfolio(props) {
           }}
         >
           <Image
-            style={{
-              width: 42,
-              height: 42,
-              alignItems: "flex-start",
-              backgroundColor: "white",
-              marginRight: 10,
-              borderRadius: 10,
-            }}
+            style={styles.thumbnail}
             source={{
               uri: "https://finance.vietstock.vn/image/" + data?.id,
             }}
@@ -101,16 +84,7 @@ function Portfolio(props) {
         </View>
         {isShowDetail && (
           <View style={{ width: "100%", height: 120 }}>
-            <View
-              style={{
-                height: 85,
-                width: "100%",
-                backgroundColor: "rgba(247, 147, 36, 0.1)",
-                marginBottom: 0,
-                marginTop: "auto",
-                borderRadius: 10,
-              }}
-            >
+            <View style={styles.detail}>
               <View
                 style={{
                   flexDirection: "row",
@@ -119,75 +93,25 @@ function Portfolio(props) {
                 }}
               >
                 <View style={styles.box}>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 11,
-                      fontWeight: "400",
-                    }}
-                  >
-                    Điểm mua
-                  </Text>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 18,
-                      fontWeight: "700",
-                    }}
-                  >
+                  <Text style={styles.type}>Điểm mua</Text>
+                  <Text style={styles.price}>
                     {data?.diemMua && addCommas(data?.diemMua)}
                   </Text>
                 </View>
                 <View style={styles.box}>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 11,
-                      fontWeight: "400",
-                    }}
-                  >
-                    Mục tiêu
-                  </Text>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 18,
-                      fontWeight: "700",
-                    }}
-                  >
+                  <Text style={styles.type}>Mục tiêu</Text>
+                  <Text style={styles.price}>
                     {data?.giaMucTieu && addCommas(data?.giaMucTieu)}
                   </Text>
                 </View>
                 <View style={styles.box}>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 11,
-                      fontWeight: "400",
-                    }}
-                  >
-                    Cắt lỗ
-                  </Text>
-                  <Text
-                    style={{
-                      color: "white",
-                      fontSize: 18,
-                      fontWeight: "700",
-                    }}
-                  >
+                  <Text style={styles.type}>Cắt lỗ</Text>
+                  <Text style={styles.price}>
                     {data?.giaCatLo && addCommas(data?.giaCatLo)}
                   </Text>
                 </View>
               </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  marginTop: "auto",
-                  marginBottom: 0,
-                  padding: 10,
-                  alignItems: "center",
-                }}
-              >
+              <View style={styles.quote}>
                 {/* <Ionicons name="thumbs-up" size={16} color={"black"} /> */}
                 <Image
                   style={{ width: 16 }}
@@ -207,11 +131,53 @@ function Portfolio(props) {
 }
 
 const styles = StyleSheet.create({
+  portfolio: {
+    flexDirection: "column",
+    marginHorizontal: 10,
+    marginVertical: 2,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    backgroundColor: "white",
+  },
   box: {
     width: 90,
     backgroundColor: "#F79324",
     borderRadius: 10,
     padding: 10,
+  },
+  thumbnail: {
+    width: 42,
+    height: 42,
+    alignItems: "flex-start",
+    backgroundColor: "white",
+    marginRight: 10,
+    borderRadius: 10,
+  },
+  detail: {
+    height: 85,
+    width: "100%",
+    backgroundColor: "rgba(247, 147, 36, 0.1)",
+    marginBottom: 0,
+    marginTop: "auto",
+    borderRadius: 10,
+  },
+  quote: {
+    flexDirection: "row",
+    marginTop: "auto",
+    marginBottom: 0,
+    padding: 10,
+    alignItems: "center",
+  },
+  type: {
+    color: "white",
+    fontSize: 11,
+    fontWeight: "400",
+  },
+  price: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "700",
   },
 });
 
