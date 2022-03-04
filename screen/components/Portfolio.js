@@ -191,7 +191,7 @@ function Portfolio(props) {
                 {/* <Ionicons name="thumbs-up" size={16} color={"black"} /> */}
                 <Image
                   style={{ width: 16 }}
-                  resizeMode={true}
+                  resizeMode="contain"
                   source={require("../../assets/icons/quote.png")}
                 />
                 <Text style={{ fontSize: 14, marginLeft: 10 }}>

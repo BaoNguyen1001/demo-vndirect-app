@@ -27,7 +27,7 @@ const RenderList = (props) => {
     <View>
       <FlatList
         data={data}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id}
         renderItem={({ item, index }) => {
           return <Portfolio data={item} />;
         }}
