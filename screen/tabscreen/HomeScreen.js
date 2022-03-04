@@ -79,15 +79,16 @@ const RenderList = (props) => {
 
 const HomeScreen = () => {
     const [data, setData] = useState([])
-    //em comment vo day
+
     useEffect(() => {
-        const onValueChange = firebase.database()
+        const onValueChange =  firebase.database()
             .ref('portfolio')
             .on('value', snapshot => {
                 const result = snapshot.val()
                 console.log({ result })
                 setData(Object.values(result))
             })
+
         return () => firebase.database().ref('portfolio').off('value', onValueChange);
     }, [])
 
