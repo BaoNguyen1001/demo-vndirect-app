@@ -70,7 +70,11 @@ const Tabs = (props) => {
       >
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Notification" component={NotiScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen
+          name="Profile"
+          options={{ headerShown: false }}
+          component={ProfileScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

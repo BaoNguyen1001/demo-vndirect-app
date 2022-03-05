@@ -156,7 +156,6 @@ const styles = StyleSheet.create({
         left: '3%',
         right: '3%',
         top: '12%',
-        bottom: '50%',
         backgroundColor: COLORS.white,
         borderRadius: 10,
         shadowColor: '#000',
