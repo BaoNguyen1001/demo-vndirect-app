@@ -139,6 +139,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     backgroundColor: "white",
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.05,
+    shadowRadius: 3.5,
+    elevation: 5,
   },
   box: {
     width: 90,
