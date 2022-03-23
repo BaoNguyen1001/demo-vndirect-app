@@ -15,8 +15,7 @@ import Notification from "./Notification";
 NotificationsByDate.propTypes = {};
 
 function NotificationsByDate(props) {
-  const { data } = props;
-
+  let { data, navigation } = props;
   return (
     <View style={{ marginHorizontal: 10, marginBottom: 10 }}>
       <Text
@@ -27,7 +26,7 @@ function NotificationsByDate(props) {
           marginBottom: 5,
         }}
       >
-        Hôm nay
+        {data.date}
       </Text>
       <View
         style={{
@@ -39,10 +38,10 @@ function NotificationsByDate(props) {
         }}
       >
         <FlatList
-          data={[{ seen: false }, { seen: true }]}
+          data={data.notifications}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => {
-            return <Notification data={item} />;
+            return <Notification navigation={navigation} data={item} />;
           }}
         ></FlatList>
       </View>

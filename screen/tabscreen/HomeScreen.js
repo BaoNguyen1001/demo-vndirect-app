@@ -41,13 +41,11 @@ const HomeScreen = () => {
   const [data, setData] = useState([]);
   //em comment vo day
   useEffect(() => {
-    console.log("hello");
     const onValueChange = firebase
       .database()
       .ref("portfolio")
       .on("value", (snapshot) => {
         const result = snapshot.val();
-        console.log({ result });
         setData(Object.values(result));
       });
     return () =>

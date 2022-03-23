@@ -10,70 +10,79 @@ import {
   StyleSheet,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import countUp from "../../utils/countUp";
 
 Notification.propTypes = {};
 
 function Notification(props) {
-  const { data } = props;
+  const { data, navigation } = props;
   return (
-    <View
-      style={{
-        backgroundColor: data?.seen ? "#F6F6F6" : "#FEF4E9",
-        borderRadius: 10,
-        marginBottom: 5,
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 10,
-      }}
+    <TouchableOpacity
+      onPress={() => navigation.push("NotificationDetail", { nid: data.key })}
     >
-      <Image
+      <View
         style={{
-          height: 42,
-          width: 42,
-          borderRadius: "50%",
-          backgroundColor: "#C4C4C4",
-          marginRight: 10,
+          backgroundColor: data?.seen !== "wait" ? "#F6F6F6" : "#FEF4E9",
+          borderRadius: 10,
+          marginBottom: 5,
+          flexDirection: "row",
+          alignItems: "center",
+          padding: 10,
         }}
-        resizeMode="contain"
-      />
-      <View>
-        <Text
+      >
+        <Image
           style={{
-            fontSize: 12,
-            fontWeight: "700",
-            color: data?.seen ? "#7C7C7C" : "#444444",
+            height: 42,
+            width: 42,
+            borderRadius: 50,
+            backgroundColor: "#C4C4C4",
+            marginRight: 10,
           }}
-        >
-          Title
-        </Text>
-        <Text
-          style={{
-            fontSize: 11,
-            fontWeight: "400",
-            color: data?.seen ? "#7C7C7C" : "#444444",
-          }}
-        >
-          Description...
-        </Text>
-      </View>
-      <View style={{ marginLeft: "auto", alignItems: "flex-end" }}>
-        <Text
-          style={{
-            fontSize: 10,
-            fontWeight: "400",
-            color: data?.seen ? "#7C7C7C" : "#444444",
-          }}
-        >
-          30 Minutes ago
-        </Text>
-        <Ionicons
-          name="flash"
-          size={17}
-          style={{ margin: 5 }}
-          color={data?.seen ? "#C4C4C4" : "#F79324"}
+          resizeMode="contain"
         />
+        <View style={{ flex: 1 }}>
+          <Text
+            style={{
+              fontSize: 12,
+              fontWeight: "700",
+              color: data?.seen !== "wait" ? "#7C7C7C" : "#444444",
+            }}
+            numberOfLines={2}
+          >
+            {data.title}
+          </Text>
+          <Text
+            style={{
+              fontSize: 11,
+              fontWeight: "400",
+              color: data?.seen !== "wait" ? "#7C7C7C" : "#444444",
+            }}
+            numberOfLines={2}
+          >
+            {data.message}
+          </Text>
+        </View>
+        <View style={{ marginLeft: "auto", alignItems: "flex-end" }}>
+          <Text
+            style={{
+              fontSize: 10,
+              fontWeight: "400",
+              color: data?.seen !== "wait" ? "#7C7C7C" : "#444444",
+            }}
+          >
+            {countUp(data.created)}
+          </Text>
+          {data.status === "important" && (
+            <Ionicons
+              name="flash"
+              size={17}
+              style={{ margin: 5 }}
+              color={data?.seen !== "wait" ? "#C4C4C4" : "#F79324"}
+            />
+          )}
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
